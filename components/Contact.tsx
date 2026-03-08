@@ -11,13 +11,26 @@ const interests = [
 ];
 
 export function Contact() {
-  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("sending");
-    await new Promise((r) => setTimeout(r, 1000));
-    setStatus("sent");
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    formData.set("form-name", "contact");
+
+    try {
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
+      });
+      if (res.ok) setStatus("sent");
+      else setStatus("error");
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -37,6 +50,9 @@ export function Contact() {
         </div>
 
         <motion.form
+          name="contact"
+          method="POST"
+          data-netlify="true"
           onSubmit={onSubmit}
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -44,6 +60,12 @@ export function Contact() {
           transition={{ duration: 0.35 }}
           className="space-y-4 rounded-xl border border-slate-800 bg-slate-900/70 p-6"
         >
+          <input type="hidden" name="form-name" value="contact" />
+          <p className="hidden">
+            <label>
+              Do not fill: <input name="bot-field" />
+            </label>
+          </p>
           <div className="space-y-1.5">
             <label className="text-xs font-medium text-slate-200">Name</label>
             <input
@@ -96,6 +118,7 @@ export function Contact() {
             )}
             {status === "sending" && "Sending..."}
             {status === "sent" && "Sent - we'll be in touch"}
+            {status === "error" && "Something went wrong - please try again"}
           </button>
         </motion.form>
       </div>

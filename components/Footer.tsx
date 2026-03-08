@@ -6,7 +6,7 @@ export function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 md:flex-row md:items-center md:justify-between">
         <div>
           <p className="text-slate-300/90">
-            © {new Date().getFullYear()} CryoDC. All rights reserved.
+            (c) {new Date().getFullYear()} CryoDC. All rights reserved.
           </p>
           <p className="mt-2 max-w-md text-[11px] text-slate-400">
             CryoDC operates with Shariah-compliant business ethics:

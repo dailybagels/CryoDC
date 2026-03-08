@@ -21,7 +21,7 @@ export function Contact() {
     formData.set("form-name", "contact");
 
     try {
-      const res = await fetch("/", {
+      const res = await fetch("/__forms.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
@@ -51,8 +51,6 @@ export function Contact() {
 
         <motion.form
           name="contact"
-          method="POST"
-          data-netlify="true"
           onSubmit={onSubmit}
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}

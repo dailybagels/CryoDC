@@ -4,14 +4,15 @@ const path = require("path");
 const root = path.join(__dirname, "..");
 const files = [
   "app/globals.css",
+  "app/page.tsx",
+  "app/layout.tsx",
   "components/Contact.tsx",
   "components/Footer.tsx",
   "components/Infrastructure.tsx",
   "components/Why.tsx",
   "components/Navbar.tsx",
   "components/Hero.tsx",
-  "app/layout.tsx",
-  "app/page.tsx",
+  "public/__forms.html",
 ];
 
 function toUtf8(buffer) {

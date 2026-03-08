@@ -9,7 +9,9 @@ export function Footer() {
             © {new Date().getFullYear()} CryoDC. All rights reserved.
           </p>
           <p className="mt-2 max-w-md text-[11px] text-slate-400">
-            CryoDC operates with Shariah-compliant business ethics: transparent structures, fair counterparties, and principled deployment of capital and infrastructure.
+            CryoDC operates with Shariah-compliant business ethics:
+            transparent structures, fair counterparties, and principled
+            deployment of capital and infrastructure.
           </p>
         </div>
         <div className="flex gap-4 text-slate-300/80">

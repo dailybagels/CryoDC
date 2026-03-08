@@ -21,14 +21,18 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="bg-slate-950/90 py-16 md:py-20 lg:py-24">
+    <section
+      id="contact"
+      className="bg-slate-950/90 py-16 md:py-20 lg:py-24"
+    >
       <div className="mx-auto max-w-xl px-4">
         <div className="mb-8 text-center">
           <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
             Get in Touch
           </h2>
           <p className="mt-3 text-sm text-slate-300/85">
-            Name, company, and what you&apos;re exploring. We&apos;ll respond within one business day.
+            Name, company, and what you&apos;re exploring. We&apos;ll respond
+            within one business day.
           </p>
         </div>
 
@@ -50,7 +54,9 @@ export function Contact() {
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-xs font-medium text-slate-200">Company</label>
+            <label className="text-xs font-medium text-slate-200">
+              Company
+            </label>
             <input
               required
               name="company"
@@ -59,7 +65,9 @@ export function Contact() {
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-xs font-medium text-slate-200">Interest</label>
+            <label className="text-xs font-medium text-slate-200">
+              Interest
+            </label>
             <select
               required
               name="interest"
@@ -87,7 +95,7 @@ export function Contact() {
               </>
             )}
             {status === "sending" && "Sending…"}
-            {status === "sent" && "Sent – we\'ll be in touch"}
+            {status === "sent" && "Sent – we'll be in touch"}
           </button>
         </motion.form>
       </div>

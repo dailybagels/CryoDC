@@ -17,10 +17,14 @@ export function Why() {
             Traditional Air Cooling Is Failing AI.
           </h2>
           <p className="mt-4 text-sm text-slate-300/85 md:text-base">
-            AI clusters are pushing rack densities past 50kW. Legacy air-cooled designs hit thermal and efficiency limits, triggering throttling, downtime risk, and unsustainable power overhead.
+            AI clusters are pushing rack densities past 50kW. Legacy
+            air-cooled designs hit thermal and efficiency limits, triggering
+            throttling, downtime risk, and unsustainable power overhead.
           </p>
           <p className="mt-4 text-sm text-slate-300/85 md:text-base">
-            CryoDC bridges that gap with liquid-first designs and targeted site scouting—so your AI capacity scales without fighting physics.
+            CryoDC bridges that gap with liquid-first designs and targeted
+            site scouting—so your AI capacity scales without fighting
+            physics.
           </p>
         </motion.div>
 
@@ -40,7 +44,9 @@ export function Why() {
                 Air Cooling at 50kW+ Racks
               </h3>
               <p className="mt-1 text-xs text-slate-300/80 md:text-sm">
-                High PUE, noisy retrofits, and hardware running at the edge of its thermal envelope. Good for legacy enterprise, not AI-scale.
+                High PUE, noisy retrofits, and hardware running at the edge
+                of its thermal envelope. Good for legacy enterprise, not
+                AI-scale.
               </p>
             </div>
           </div>
@@ -56,7 +62,9 @@ export function Why() {
                 Liquid-First, AI-Ready by Design
               </h3>
               <p className="mt-1 text-xs text-slate-300/80 md:text-sm">
-                Immersion and cold-plate architectures tuned for GPUs, plus scouting of global locations where power, regulation, and latency all work in your favor.
+                Immersion and cold-plate architectures tuned for GPUs, plus
+                scouting of global locations where power, regulation, and
+                latency all work in your favor.
               </p>
             </div>
           </div>

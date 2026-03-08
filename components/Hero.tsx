@@ -39,7 +39,8 @@ export function Hero() {
           transition={{ duration: 0.45, delay: 0.12 }}
           className="mb-8 max-w-xl text-balance text-sm text-slate-300/80 sm:text-base"
         >
-          Specialized High-Density Infrastructure and AI Scouting for Global Markets. Liquid-cooled, AI-native capacity beyond Singapore.
+          Specialized High-Density Infrastructure and AI Scouting for Global
+          Markets. Liquid-cooled, AI-native capacity beyond Singapore.
         </motion.p>
 
         <motion.div

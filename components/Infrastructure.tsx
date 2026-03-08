@@ -23,14 +23,18 @@ const items = [
 
 export function Infrastructure() {
   return (
-    <section id="infrastructure" className="bg-slate-950/80 py-16 md:py-20 lg:py-24">
+    <section
+      id="infrastructure"
+      className="bg-slate-950/80 py-16 md:py-20 lg:py-24"
+    >
       <div className="mx-auto max-w-6xl px-4">
         <div className="mb-10 text-center md:mb-14">
           <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
             Infrastructure Focus
           </h2>
           <p className="mt-3 text-sm text-slate-300/80 md:text-base">
-            Liquid-first, AI-native capacity—from rack design to site discovery.
+            Liquid-first, AI-native capacity—from rack design to site
+            discovery.
           </p>
         </div>
 
@@ -52,7 +56,9 @@ export function Infrastructure() {
                 <h3 className="mb-2 text-sm font-semibold text-slate-50">
                   {item.title}
                 </h3>
-                <p className="text-xs text-slate-300/80 md:text-sm">{item.body}</p>
+                <p className="text-xs text-slate-300/80 md:text-sm">
+                  {item.body}
+                </p>
               </div>
             </motion.article>
           ))}

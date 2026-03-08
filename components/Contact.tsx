@@ -74,7 +74,7 @@ export function Contact() {
               className="w-full rounded-lg border border-slate-700 bg-slate-950/60 px-3 py-2 text-sm text-slate-100 outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/60"
             >
               <option value="" className="bg-slate-900">
-                Select…
+                Select...
               </option>
               {interests.map((i) => (
                 <option key={i} value={i} className="bg-slate-900">
@@ -94,8 +94,8 @@ export function Contact() {
                 Send enquiry <Send size={16} />
               </>
             )}
-            {status === "sending" && "Sending…"}
-            {status === "sent" && "Sent – we'll be in touch"}
+            {status === "sending" && "Sending..."}
+            {status === "sent" && "Sent - we'll be in touch"}
           </button>
         </motion.form>
       </div>

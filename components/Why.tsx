@@ -23,7 +23,7 @@ export function Why() {
           </p>
           <p className="mt-4 text-sm text-slate-300/85 md:text-base">
             CryoDC bridges that gap with liquid-first designs and targeted
-            site scouting—so your AI capacity scales without fighting
+            site scouting - so your AI capacity scales without fighting
             physics.
           </p>
         </motion.div>

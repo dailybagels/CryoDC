@@ -1,0 +1,10 @@
+# Force UTF-8 and consistent line endings for source files (avoids Netlify "invalid UTF-8" errors)
+*.ts   text eol=lf
+*.tsx  text eol=lf
+*.js   text eol=lf
+*.mjs  text eol=lf
+*.cjs  text eol=lf
+*.jsx  text eol=lf
+*.json text eol=lf
+*.css  text eol=lf
+*.md   text eol=lf

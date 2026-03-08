@@ -33,7 +33,7 @@ export function Infrastructure() {
             Infrastructure Focus
           </h2>
           <p className="mt-3 text-sm text-slate-300/80 md:text-base">
-            Liquid-first, AI-native capacity—from rack design to site
+            Liquid-first, AI-native capacity - from rack design to site
             discovery.
           </p>
         </div>

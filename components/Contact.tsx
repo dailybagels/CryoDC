@@ -86,6 +86,19 @@ export function Contact() {
 
           <div className="space-y-1.5">
             <label className="text-xs font-medium text-slate-200">
+              Contact email
+            </label>
+            <input
+              required
+              type="email"
+              name="email"
+              placeholder="you@company.com"
+              className="w-full rounded-lg border border-slate-700 bg-slate-950/60 px-3 py-2 text-sm text-slate-100 placeholder-slate-500 outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/60"
+            />
+          </div>
+
+          <div className="space-y-1.5">
+            <label className="text-xs font-medium text-slate-200">
               Interest
             </label>
             <select

@@ -484,7 +484,7 @@ function CapacityDashboard() {
                     className={`${
                       line.startsWith("root@")
                         ? "text-[#00F0FF]"
-                        : line.includes("═") || line.includes("║")
+                        : line?.includes("═") || line.includes("║")
                         ? "text-[#00F0FF]/80"
                         : "text-[#737373]"
                     }`}

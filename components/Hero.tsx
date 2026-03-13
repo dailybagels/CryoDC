@@ -2,60 +2,111 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { Download, Search } from "lucide-react";
+import Image from "next/image";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-slate-950">
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.9),rgba(15,23,42,1))]">
-        <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.16),transparent_55%)]" />
+    <section className="relative min-h-screen overflow-hidden bg-[var(--background)]">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/datacenter-interior.jpg"
+          alt="High-density data center with liquid cooling infrastructure"
+          fill
+          className="object-cover opacity-20"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#050505]/80 to-[#050505]" />
+        <div className="absolute inset-0 scanline pointer-events-none" />
       </div>
 
-      <div className="relative mx-auto flex min-h-[80vh] max-w-6xl flex-col items-center justify-center px-4 py-16 text-center">
-        <motion.p
+      {/* Grid Pattern */}
+      <div 
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `linear-gradient(var(--accent) 1px, transparent 1px), linear-gradient(90deg, var(--accent) 1px, transparent 1px)`,
+          backgroundSize: '60px 60px'
+        }}
+      />
+
+      <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center px-4 py-24 text-center lg:px-8">
+        <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35 }}
-          className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-cyan-300/70"
+          className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-1.5"
         >
-          AI-READY DATA CENTER INFRASTRUCTURE
-        </motion.p>
+          <span className="h-2 w-2 animate-pulse rounded-full bg-accent" />
+          <span className="font-mono text-xs uppercase tracking-widest text-accent">
+            Blackwell-Ready Infrastructure
+          </span>
+        </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, delay: 0.05 }}
-          className="mb-5 max-w-3xl text-balance text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl"
+          transition={{ duration: 0.5, delay: 0.05 }}
+          className="mb-6 max-w-4xl text-balance"
         >
-          Cooling the{" "}
-          <span className="bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-500 bg-clip-text text-transparent">
-            Intelligence Revolution.
+          <span className="block text-5xl font-bold tracking-tight text-[var(--foreground)] sm:text-6xl md:text-7xl lg:text-8xl">
+            The{" "}
+            <span className="text-accent text-glow">132kW</span>
+            {" "}Barrier.
           </span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, delay: 0.12 }}
-          className="mb-8 max-w-xl text-balance text-sm text-slate-300/80 sm:text-base"
+          transition={{ duration: 0.5, delay: 0.12 }}
+          className="mb-10 max-w-2xl text-balance text-base text-[var(--muted-foreground)] sm:text-lg md:text-xl"
         >
-          Specialized High-Density Infrastructure and AI Scouting for Global
-          Markets. Liquid-cooled, AI-native capacity beyond Singapore.
+          Securing institutional, liquid-cooled infrastructure for the Blackwell era across the{" "}
+          <span className="font-mono text-accent">Singapore</span>—
+          <span className="font-mono text-accent">London</span>—
+          <span className="font-mono text-accent">GCC</span> axis.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.18 }}
-          className="flex items-center gap-3"
+          className="flex flex-col items-center gap-4 sm:flex-row"
         >
           <Link
-            href="#contact"
-            className="inline-flex items-center gap-2 rounded-lg border border-cyan-500/50 bg-cyan-500/15 px-6 py-3 text-sm font-medium text-cyan-100 shadow-[0_0_24px_rgba(34,211,238,0.4)] transition hover:border-cyan-400 hover:bg-cyan-500/25"
+            href="#specs"
+            className="group inline-flex items-center gap-2 rounded border border-accent bg-transparent px-6 py-3 font-mono text-sm uppercase tracking-wider text-accent transition hover:bg-accent/10 glow-accent"
           >
-            Get in Touch
-            <ArrowRight size={16} className="translate-y-[0.5px]" />
+            <Download size={16} />
+            Download Blackwell Blueprint
           </Link>
+          <Link
+            href="#contact"
+            className="inline-flex items-center gap-2 rounded border border-[var(--border)] bg-[var(--muted)] px-6 py-3 font-mono text-sm uppercase tracking-wider text-[var(--foreground)] transition hover:border-accent/40 hover:text-accent"
+          >
+            <Search size={16} />
+            Audit Your Capacity
+          </Link>
+        </motion.div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        >
+          <div className="flex flex-col items-center gap-2">
+            <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--muted-foreground)]">
+              Scroll
+            </span>
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="h-8 w-px bg-gradient-to-b from-accent to-transparent"
+            />
+          </div>
         </motion.div>
       </div>
     </section>

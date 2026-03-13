@@ -1,11 +1,17 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Navbar } from "../components/Navbar";
 
 export const metadata: Metadata = {
-  title: "CryoDC | Cooling the Intelligence Revolution",
+  title: "CryoDC | The 132kW Barrier",
   description:
-    "Specialized High-Density Infrastructure and AI Scouting for Global Markets.",
+    "Securing institutional, liquid-cooled infrastructure for the Blackwell era across the Singapore—London—GCC axis.",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#050505",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -15,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="bg-slate-950 text-slate-100 antialiased">
+      <body>
         <Navbar />
         {children}
       </body>

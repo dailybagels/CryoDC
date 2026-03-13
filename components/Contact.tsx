@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send } from "lucide-react";
+import { Send, Mail, Building2, User, MessageSquare } from "lucide-react";
 
 const interests = [
-  "AI Infrastructure Scouting",
-  "High-Density Hosting",
-  "Liquid Cooling",
+  "Blackwell Blueprint Download",
+  "Capacity Audit",
+  "Site Visit Request",
+  "Partnership Inquiry",
 ];
 
 export function Contact() {
@@ -36,27 +37,43 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="bg-slate-950/90 py-16 md:py-20 lg:py-24"
+      className="relative bg-[var(--background)] py-20 md:py-28"
     >
-      <div className="mx-auto max-w-xl px-4">
-        <div className="mb-8 text-center">
-          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            Get in Touch
+      {/* Background Grid */}
+      <div 
+        className="absolute inset-0 opacity-[0.02]"
+        style={{
+          backgroundImage: `linear-gradient(var(--accent) 1px, transparent 1px), linear-gradient(90deg, var(--accent) 1px, transparent 1px)`,
+          backgroundSize: '40px 40px'
+        }}
+      />
+
+      <div className="relative mx-auto max-w-3xl px-4 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-10 text-center"
+        >
+          <span className="mb-4 inline-block font-mono text-xs uppercase tracking-widest text-accent">
+            Get Started
+          </span>
+          <h2 className="mb-4 text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl">
+            Audit Your <span className="text-accent">Capacity</span>
           </h2>
-          <p className="mt-3 text-sm text-slate-300/85">
-            Name, company, and what you&apos;re exploring. We&apos;ll respond
-            within one business day.
+          <p className="text-[var(--muted-foreground)]">
+            Share your requirements. We respond within one business day.
           </p>
-        </div>
+        </motion.div>
 
         <motion.form
           name="contact"
           onSubmit={onSubmit}
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.35 }}
-          className="space-y-4 rounded-xl border border-slate-800 bg-slate-900/70 p-6"
+          transition={{ duration: 0.4 }}
+          className="space-y-6 rounded-lg border border-[var(--border)] bg-[#0a0a0a] p-6 md:p-8"
         >
           <input type="hidden" name="form-name" value="contact" />
           <p className="hidden">
@@ -64,72 +81,103 @@ export function Contact() {
               Do not fill: <input name="bot-field" />
             </label>
           </p>
-          <div className="space-y-1.5">
-            <label className="text-xs font-medium text-slate-200">Name</label>
-            <input
-              required
-              name="name"
-              className="w-full rounded-lg border border-slate-700 bg-slate-950/60 px-3 py-2 text-sm text-slate-100 outline-none ring-0 transition focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/60"
-            />
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {/* Name */}
+            <div className="space-y-2">
+              <label className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[var(--muted-foreground)]">
+                <User className="h-3 w-3" />
+                Name
+              </label>
+              <input
+                required
+                name="name"
+                className="w-full rounded border border-[var(--border)] bg-[var(--background)] px-4 py-3 font-mono text-sm text-[var(--foreground)] outline-none transition focus:border-accent focus:ring-1 focus:ring-accent/40 placeholder:text-[var(--muted-foreground)]"
+                placeholder="Your name"
+              />
+            </div>
+
+            {/* Company */}
+            <div className="space-y-2">
+              <label className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[var(--muted-foreground)]">
+                <Building2 className="h-3 w-3" />
+                Company
+              </label>
+              <input
+                required
+                name="company"
+                className="w-full rounded border border-[var(--border)] bg-[var(--background)] px-4 py-3 font-mono text-sm text-[var(--foreground)] outline-none transition focus:border-accent focus:ring-1 focus:ring-accent/40 placeholder:text-[var(--muted-foreground)]"
+                placeholder="Your company"
+              />
+            </div>
           </div>
 
-          <div className="space-y-1.5">
-            <label className="text-xs font-medium text-slate-200">
-              Company
-            </label>
-            <input
-              required
-              name="company"
-              className="w-full rounded-lg border border-slate-700 bg-slate-950/60 px-3 py-2 text-sm text-slate-100 outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/60"
-            />
-          </div>
-
-          <div className="space-y-1.5">
-            <label className="text-xs font-medium text-slate-200">
-              Contact email
+          {/* Email */}
+          <div className="space-y-2">
+            <label className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[var(--muted-foreground)]">
+              <Mail className="h-3 w-3" />
+              Email
             </label>
             <input
               required
               type="email"
               name="email"
+              className="w-full rounded border border-[var(--border)] bg-[var(--background)] px-4 py-3 font-mono text-sm text-[var(--foreground)] outline-none transition focus:border-accent focus:ring-1 focus:ring-accent/40 placeholder:text-[var(--muted-foreground)]"
               placeholder="you@company.com"
-              className="w-full rounded-lg border border-slate-700 bg-slate-950/60 px-3 py-2 text-sm text-slate-100 placeholder-slate-500 outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/60"
             />
           </div>
 
-          <div className="space-y-1.5">
-            <label className="text-xs font-medium text-slate-200">
+          {/* Interest */}
+          <div className="space-y-2">
+            <label className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[var(--muted-foreground)]">
+              <MessageSquare className="h-3 w-3" />
               Interest
             </label>
             <select
               required
               name="interest"
-              className="w-full rounded-lg border border-slate-700 bg-slate-950/60 px-3 py-2 text-sm text-slate-100 outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/60"
+              className="w-full rounded border border-[var(--border)] bg-[var(--background)] px-4 py-3 font-mono text-sm text-[var(--foreground)] outline-none transition focus:border-accent focus:ring-1 focus:ring-accent/40"
             >
-              <option value="" className="bg-slate-900">
-                Select...
+              <option value="" className="bg-[#0a0a0a]">
+                Select your interest...
               </option>
               {interests.map((i) => (
-                <option key={i} value={i} className="bg-slate-900">
+                <option key={i} value={i} className="bg-[#0a0a0a]">
                   {i}
                 </option>
               ))}
             </select>
           </div>
 
+          {/* Message */}
+          <div className="space-y-2">
+            <label className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[var(--muted-foreground)]">
+              <MessageSquare className="h-3 w-3" />
+              Message (optional)
+            </label>
+            <textarea
+              name="message"
+              rows={4}
+              className="w-full resize-none rounded border border-[var(--border)] bg-[var(--background)] px-4 py-3 font-mono text-sm text-[var(--foreground)] outline-none transition focus:border-accent focus:ring-1 focus:ring-accent/40 placeholder:text-[var(--muted-foreground)]"
+              placeholder="Tell us about your capacity requirements..."
+            />
+          </div>
+
+          {/* Submit */}
           <button
             type="submit"
             disabled={status === "sending"}
-            className="flex w-full items-center justify-center gap-2 rounded-lg border border-cyan-500/50 bg-cyan-500/15 px-4 py-2.5 text-sm font-medium text-cyan-100 shadow-[0_0_20px_rgba(34,211,238,0.35)] transition hover:bg-cyan-500/25 disabled:opacity-60"
+            className="flex w-full items-center justify-center gap-2 rounded border border-accent bg-accent/10 px-6 py-3 font-mono text-sm uppercase tracking-wider text-accent transition hover:bg-accent/20 disabled:opacity-50 glow-accent"
           >
             {status === "idle" && (
               <>
-                Send enquiry <Send size={16} />
+                <Send size={16} />
+                Submit Inquiry
               </>
             )}
-            {status === "sending" && "Sending..."}
-            {status === "sent" && "Sent - we'll be in touch"}
-            {status === "error" && "Something went wrong - please try again"}
+            {status === "sending" && "Transmitting..."}
+            {status === "sent" && "Message Received — We'll respond shortly"}
+            {status === "error" && "Transmission failed — Please retry"}
           </button>
         </motion.form>
       </div>

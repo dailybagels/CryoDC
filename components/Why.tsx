@@ -1,74 +1,155 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ThermometerSnowflake, Zap } from "lucide-react";
+import { MapPin, Zap, Shield, Clock } from "lucide-react";
+import Image from "next/image";
+
+const regions = [
+  {
+    name: "Singapore",
+    code: "SGP",
+    highlight: "APAC Hub",
+    description: "Strategic gateway to Southeast Asia's AI ecosystem",
+  },
+  {
+    name: "London",
+    code: "LON",
+    highlight: "EMEA Hub",
+    description: "Financial and enterprise AI center for Europe",
+  },
+  {
+    name: "GCC",
+    code: "BAH",
+    highlight: "Emerging",
+    description: "Sovereign AI infrastructure for the Gulf region",
+  },
+];
+
+const advantages = [
+  {
+    icon: Zap,
+    title: "Power Secured",
+    text: "Long-term power agreements at competitive rates with renewable options",
+  },
+  {
+    icon: Shield,
+    title: "Data Sovereignty",
+    text: "Physical and logical isolation compliant with local regulations",
+  },
+  {
+    icon: Clock,
+    title: "Rapid Deployment",
+    text: "Pre-built infrastructure ready for your hardware within 90 days",
+  },
+];
 
 export function Why() {
   return (
-    <section id="why" className="bg-slate-950 py-16 md:py-20 lg:py-24">
-      <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 md:grid-cols-2">
-        <motion.div
-          initial={{ opacity: 0, x: -18 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.4 }}
-        >
-          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
-            Traditional Air Cooling Is Failing AI.
-          </h2>
-          <p className="mt-4 text-sm text-slate-300/85 md:text-base">
-            AI clusters are pushing rack densities past 50kW. Legacy
-            air-cooled designs hit thermal and efficiency limits, triggering
-            throttling, downtime risk, and unsustainable power overhead.
-          </p>
-          <p className="mt-4 text-sm text-slate-300/85 md:text-base">
-            CryoDC bridges that gap with liquid-first designs and targeted
-            site scouting - so your AI capacity scales without fighting
-            physics.
-          </p>
-        </motion.div>
+    <section id="why" className="relative bg-[var(--background)] py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Left Column - Text */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <span className="mb-4 inline-block font-mono text-xs uppercase tracking-widest text-accent">
+              Global Presence
+            </span>
+            <h2 className="mb-6 text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl">
+              The SGP—LON—GCC{" "}
+              <span className="text-accent">Axis</span>
+            </h2>
+            <p className="mb-8 text-lg text-[var(--muted-foreground)] leading-relaxed">
+              Strategic positioning across three continents for low-latency inference, 
+              data sovereignty compliance, and diversified infrastructure risk.
+            </p>
 
-        <motion.div
-          initial={{ opacity: 0, x: 18 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.4 }}
-          className="space-y-4 rounded-xl border border-slate-800 bg-slate-900/60 p-6"
-        >
-          <div className="flex gap-3">
-            <div className="mt-1 rounded-lg bg-red-500/10 p-2 text-red-300">
-              <ThermometerSnowflake size={20} />
+            {/* Region Cards */}
+            <div className="space-y-4">
+              {regions.map((region, i) => (
+                <motion.div
+                  key={region.code}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="group flex items-start gap-4 rounded-lg border border-[var(--border)] bg-[#0a0a0a] p-4 transition-all hover:border-accent/40"
+                >
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded border border-accent/30 bg-accent/10">
+                    <MapPin className="h-5 w-5 text-accent" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-3">
+                      <span className="font-mono text-lg font-semibold text-[var(--foreground)]">
+                        {region.name}
+                      </span>
+                      <span className="rounded bg-accent/10 px-2 py-0.5 font-mono text-xs text-accent">
+                        {region.code}
+                      </span>
+                      <span className="font-mono text-xs text-[var(--muted-foreground)]">
+                        {region.highlight}
+                      </span>
+                    </div>
+                    <p className="mt-1 text-sm text-[var(--muted-foreground)]">
+                      {region.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-            <div>
-              <h3 className="text-sm font-semibold text-slate-50">
-                Air Cooling at 50kW+ Racks
-              </h3>
-              <p className="mt-1 text-xs text-slate-300/80 md:text-sm">
-                High PUE, noisy retrofits, and hardware running at the edge
-                of its thermal envelope. Good for legacy enterprise, not
-                AI-scale.
-              </p>
-            </div>
-          </div>
+          </motion.div>
 
-          <div className="h-px bg-gradient-to-r from-red-500/40 via-slate-700 to-cyan-400/40" />
+          {/* Right Column - Image + Advantages */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="space-y-6"
+          >
+            {/* Image */}
+            <div className="relative aspect-video overflow-hidden rounded-lg border border-[var(--border)]">
+              <Image
+                src="/images/datacenter-interior.jpg"
+                alt="CryoDC high-density data center interior"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <div className="inline-flex items-center gap-2 rounded bg-[#050505]/80 px-3 py-1.5 backdrop-blur">
+                  <span className="h-2 w-2 animate-pulse rounded-full bg-accent" />
+                  <span className="font-mono text-xs text-accent">SGP-Loyang Facility</span>
+                </div>
+              </div>
+            </div>
 
-          <div className="flex gap-3">
-            <div className="mt-1 rounded-lg bg-cyan-500/10 p-2 text-cyan-300">
-              <Zap size={20} />
+            {/* Advantages */}
+            <div className="grid gap-4 sm:grid-cols-3">
+              {advantages.map((adv, i) => (
+                <motion.div
+                  key={adv.title}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 + i * 0.1 }}
+                  className="rounded-lg border border-[var(--border)] bg-[#0a0a0a] p-4"
+                >
+                  <adv.icon className="mb-2 h-5 w-5 text-accent" />
+                  <h4 className="mb-1 font-mono text-sm font-semibold text-[var(--foreground)]">
+                    {adv.title}
+                  </h4>
+                  <p className="text-xs text-[var(--muted-foreground)] leading-relaxed">
+                    {adv.text}
+                  </p>
+                </motion.div>
+              ))}
             </div>
-            <div>
-              <h3 className="text-sm font-semibold text-slate-50">
-                Liquid-First, AI-Ready by Design
-              </h3>
-              <p className="mt-1 text-xs text-slate-300/80 md:text-sm">
-                Immersion and cold-plate architectures tuned for GPUs, plus
-                scouting of global locations where power, regulation, and
-                latency all work in your favor.
-              </p>
-            </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

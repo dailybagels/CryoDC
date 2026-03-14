@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Send, Mail, Building2, User, MessageSquare } from "lucide-react";
 
 const interests = [
-  "Blackwell Blueprint Download",
+  "Request for a Blackwell Blueprint Report",
   "Secure Your Capacity in a Data Center",
   "Partnership Inquiry",
 ];

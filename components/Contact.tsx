@@ -6,7 +6,8 @@ import { Send, Mail, Building2, User, MessageSquare } from "lucide-react";
 
 const interests = [
   "Blackwell Blueprint Download",
-  "Capacity Inquiry",
+  "Capacity Audit",
+  "Site Visit Request",
   "Partnership Inquiry",
 ];
 

@@ -6,8 +6,7 @@ import { Send, Mail, Building2, User, MessageSquare } from "lucide-react";
 
 const interests = [
   "Blackwell Blueprint Download",
-  "Capacity Audit",
-  "Site Visit Request",
+  "Secure Your Capacity in a Data Center",
   "Partnership Inquiry",
 ];
 
@@ -59,7 +58,7 @@ export function Contact() {
             Get Started
           </span>
           <h2 className="mb-4 text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl">
-            Audit Your <span className="text-accent">Capacity</span>
+            Secure Your <span className="text-accent">Capacity Now</span>
           </h2>
           <p className="text-[var(--muted-foreground)]">
             Share your requirements. We respond within one business day.
